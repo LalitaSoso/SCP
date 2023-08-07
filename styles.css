@@ -1,88 +1,90 @@
 body {
-	margin-top: 10px;
-	font-family: "Josefin Slab", serif;
+  margin-top: 10px;
+  font-family: "Josefin Slab", serif;
 }
 
 .weather-app {
-	border: 2px solid #000000;
-	padding: 20px;
-	max-width: 700px;
-	margin: 0 auto;
+  border: 2px solid #000000;
+  padding: 20px;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 h1 {
-	text-align: center;
-	font-size: 50px;
-	font-weight: bold;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
 }
 
 .button {
-	background-color: #000000;
-	border: red solid 1px;
+  background-color: #000000;
+  border: red solid 1px;
 }
 
 .button:hover {
-	color: #000000;
-	background-color: #f8f8f8;
-	border: red solid 1px;
+  color: #000000;
+  background-color: #f8f8f8;
+  border: red solid 1px;
 }
 
 .row.cities {
-	text-align: center;
-	text-transform: uppercase;
-	font-family: Cerebri Sans, Helvetica, Arial, sans-serif;
-	font-weight: thin;
-	font-size: 12px;
-	line-height: 1px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Cerebri Sans, Helvetica, Arial, sans-serif;
+  font-weight: thin;
+  font-size: 12px;
+  line-height: 1px;
+  text-decoration: none;
+  color: #000000;
+  vertical-align: super;
 }
 
 .row.cities:hover {
-	cursor: pointer;
-	text-decoration: underline;
+  cursor: pointer;
+  text-decoration: underline;
+  color: red;
 }
 
 h2 {
-	text-align: center;
-	font-size: 20px;
-	color: red;
-	padding: 20px;
-	margin-top: 25px;
-}
-
-a {
-	text-decoration: none;
-	color: #000000;
-	font-size: 15px;
-	vertical-align: super;
-}
-
-a:hover {
-	cursor: pointer;
-	text-decoration: underline;
-	color: red;
+  text-align: center;
+  font-size: 20px;
+  color: red;
+  padding: 20px;
+  margin-top: 25px;
 }
 
 .red-line-units {
-	font-size: 15px;
+  font-size: 15px;
 }
 
 .card-header {
-	text-align: left;
-	font-size: 20px;
-	font-weight: bold;
+  text-align: left;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .card-title {
-	text-transform: uppercase;
-	font-size: 15px;
-	font-weight: 500;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 i {
-	font-size: 30px;
+  font-size: 30px;
 }
 
 .cb {
-	font-size: 14px;
-	text-align: center;
+  font-size: 14px;
+  text-align: center;
+}
+
+.git {
+  color: #8047ec;
+  text-decoration: none;
+}
+
+.git:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: black;
 }
