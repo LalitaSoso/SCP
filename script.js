@@ -18,14 +18,12 @@ function displayTime(now) {
 	return `on ${day} ${month} ${date} ${hour}:${minute}.`;
 }
 
-// week 5 submission ⬇️
-
 function displayCityTempAndDescription(response) {
 	let iconElement = document.querySelector("#weather-icon");
 
 	document.querySelector("#city").innerHTML = response.data.name;
-	document.querySelector("#just-the-temp").innerHTML = `It's ${Math.round(response.data.main.temp)}°F`;
-	document.querySelector("#weather-description").innerHTML = `${response.data.weather[0].description}`;
+	document.querySelector("#just-the-temp").innerHTML = `It's ${Math.round(response.data.main.temp)}°`;
+	document.querySelector("#weather-description").innerHTML = response.data.weather[0].description;
 	iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 	iconElement.setAttribute("alt", response.data.weather[0].description);
 }
@@ -52,8 +50,6 @@ function geolocate(event) {
 	event.preventDefault();
 	navigator.geolocation.getCurrentPosition(searchGeolocation);
 }
-
-// week 5 submission ⬆️
 
 // function sayFahrenheit(event) {
 //   event.preventDefault();

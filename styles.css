@@ -55,6 +55,30 @@ h2 {
 	margin-top: 25px;
 }
 
+.celsius-link {
+	text-decoration: none;
+	color: #000000;
+	vertical-align: super;
+}
+
+.fahrenheit-link {
+	text-decoration: none;
+	color: #000000;
+	vertical-align: super;
+}
+
+.celsius-link:hover {
+	cursor: pointer;
+	text-decoration: underline;
+	color: red;
+}
+
+.fahrenheit-link:hover {
+	cursor: pointer;
+	text-decoration: underline;
+	color: red;
+}
+
 .red-line-units {
 	font-size: 15px;
 }
@@ -89,4 +113,9 @@ i {
 	cursor: pointer;
 	text-decoration: underline;
 	color: black;
+}
+
+.weather-icon {
+	box-sizing: content-box;
+	width: 8%;
 }
