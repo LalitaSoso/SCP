@@ -7,18 +7,27 @@ function displayTime(now) {
 	if (minute < 10) {
 		minute = `0${minute}`;
 	}
-	let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+	let days = ["Sun", "Mon.", "Tues.", "Wed.", "Thurs.", "Fri.", "Sat."];
 	let day = days[now.getDay()];
 
-	return `It is currently ${hour}:${minute} on a ${day} afternoon,`;
+	let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+	let month = months[now.getMonth()];
+
+	let date = now.getDate();
+
+	return `on ${day} ${month} ${date} ${hour}:${minute}.`;
 }
 
 // week 5 submission ⬇️
 
 function displayCityTempAndDescription(response) {
+	let iconElement = document.querySelector("#weather-icon");
+
 	document.querySelector("#city").innerHTML = response.data.name;
-	document.querySelector("#just-the-temp").innerHTML = Math.round(response.data.main.temp);
-	document.querySelector("#weather-description").innerHTML = `with ${response.data.weather[0].description}.`;
+	document.querySelector("#just-the-temp").innerHTML = `It's ${Math.round(response.data.main.temp)}°F`;
+	document.querySelector("#weather-description").innerHTML = `${response.data.weather[0].description}`;
+	iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+	iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function search(city) {
