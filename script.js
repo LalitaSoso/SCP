@@ -7,7 +7,7 @@ function displayTime(now) {
 	if (minute < 10) {
 		minute = `0${minute}`;
 	}
-	let days = ["Sun", "Mon.", "Tues.", "Wed.", "Thurs.", "Fri.", "Sat."];
+	let days = ["Sun", "Mon.", "Tue.", "Wed.", "Thu.", "Fri.", "Sat."];
 	let day = days[now.getDay()];
 
 	let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -21,8 +21,10 @@ function displayTime(now) {
 function displayCityTempAndDescription(response) {
 	let iconElement = document.querySelector("#weather-icon");
 
+	fahrenheitTemperature = response.data.main.temp;
+
 	document.querySelector("#city").innerHTML = response.data.name;
-	document.querySelector("#just-the-temp").innerHTML = `It's ${Math.round(response.data.main.temp)}°`;
+	document.querySelector("#just-the-temp").innerHTML = `It's ${Math.round(fahrenheitTemperature)}°`;
 	document.querySelector("#weather-description").innerHTML = response.data.weather[0].description;
 	iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 	iconElement.setAttribute("alt", response.data.weather[0].description);
@@ -51,17 +53,20 @@ function geolocate(event) {
 	navigator.geolocation.getCurrentPosition(searchGeolocation);
 }
 
-// function sayFahrenheit(event) {
-//   event.preventDefault();
-//   let temp = document.querySelector("#just-the-temp");
-//   temp.innerHTML = "77°";
-// }
+function convertToCelsius(event) {
+	event.preventDefault();
+	let celsius = ((fahrenheitTemperature - 32) * 5) / 9;
+	let temperature = document.querySelector("#just-the-temp");
+	temperature.innerHTML = `It's ${Math.round(celsius)}°`;
+}
 
-// function sayCelsius(event) {
-//   event.preventDefault();
-//   let temp = document.querySelector("#just-the-temp");
-//   temp.innerHTML = "25°";
-// }
+function displayFahrenheit(event) {
+	event.preventDefault();
+	let temperature = document.querySelector("#just-the-temp");
+	temperature.innerHTML = `It's ${Math.round(fahrenheitTemperature)}°`;
+}
+
+let fahrenheitTemperature = null;
 
 let timeAndDay = document.querySelector("#red-line-time");
 let now = new Date();
@@ -73,10 +78,10 @@ searchForm.addEventListener("submit", searchInput);
 let geolocationButton = document.querySelector("#geolocation-button");
 geolocationButton.addEventListener("click", geolocate);
 
+let fahrenheitlink = document.querySelector("#fahrenheit-link");
+fahrenheitlink.addEventListener("click", displayFahrenheit);
+
+let celsiuslink = document.querySelector("#celsius-link");
+celsiuslink.addEventListener("click", convertToCelsius);
+
 search("Bronx County");
-
-// let fahrenheitlink = document.querySelector("#fahrenheit-link");
-// fahrenheitlink.addEventListener("click", sayFahrenheit);
-
-// let celsiuslink = document.querySelector("#celsius-link");
-// celsiuslink.addEventListener("click", sayCelsius);
