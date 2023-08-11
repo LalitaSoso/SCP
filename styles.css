@@ -27,6 +27,9 @@ h1 {
 	border: red solid 1px;
 }
 
+a {
+	color: gray;
+}
 .row.cities {
 	text-align: center;
 	text-transform: uppercase;
@@ -55,32 +58,18 @@ h2 {
 	margin-top: 25px;
 }
 
-.celsius-link {
-	text-decoration: none;
-	color: #000000;
-	vertical-align: super;
-}
-
-.fahrenheit-link {
-	text-decoration: none;
-	color: #000000;
-	vertical-align: super;
-}
-
-.celsius-link:hover {
-	cursor: pointer;
-	text-decoration: underline;
-	color: red;
-}
-
-.fahrenheit-link:hover {
-	cursor: pointer;
-	text-decoration: underline;
-	color: red;
-}
-
 .red-line-units {
 	font-size: 15px;
+	vertical-align: super;
+}
+
+.red-line-units .active {
+	text-decoration: none;
+	color: red;
+}
+
+.red-line-units .active:hover {
+	cursor: default;
 }
 
 .card-header {

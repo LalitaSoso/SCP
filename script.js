@@ -24,7 +24,7 @@ function displayCityTempAndDescription(response) {
 	fahrenheitTemperature = response.data.main.temp;
 
 	document.querySelector("#city").innerHTML = response.data.name;
-	document.querySelector("#just-the-temp").innerHTML = `It's ${Math.round(fahrenheitTemperature)}°`;
+	document.querySelector("#just-the-temp").innerHTML = `It is ${Math.round(fahrenheitTemperature)}°`;
 	document.querySelector("#weather-description").innerHTML = response.data.weather[0].description;
 	iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 	iconElement.setAttribute("alt", response.data.weather[0].description);
@@ -57,13 +57,17 @@ function convertToCelsius(event) {
 	event.preventDefault();
 	let celsius = ((fahrenheitTemperature - 32) * 5) / 9;
 	let temperature = document.querySelector("#just-the-temp");
-	temperature.innerHTML = `It's ${Math.round(celsius)}°`;
+	fahrenheitLink.classList.remove("active");
+	celsiusLink.classList.add("active");
+	temperature.innerHTML = `It is ${Math.round(celsius)}°`;
 }
 
 function displayFahrenheit(event) {
 	event.preventDefault();
 	let temperature = document.querySelector("#just-the-temp");
-	temperature.innerHTML = `It's ${Math.round(fahrenheitTemperature)}°`;
+	fahrenheitLink.classList.add("active");
+	celsiusLink.classList.remove("active");
+	temperature.innerHTML = `It is ${Math.round(fahrenheitTemperature)}°`;
 }
 
 let fahrenheitTemperature = null;
@@ -78,10 +82,10 @@ searchForm.addEventListener("submit", searchInput);
 let geolocationButton = document.querySelector("#geolocation-button");
 geolocationButton.addEventListener("click", geolocate);
 
-let fahrenheitlink = document.querySelector("#fahrenheit-link");
-fahrenheitlink.addEventListener("click", displayFahrenheit);
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheit);
 
-let celsiuslink = document.querySelector("#celsius-link");
-celsiuslink.addEventListener("click", convertToCelsius);
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", convertToCelsius);
 
 search("Bronx County");
