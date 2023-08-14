@@ -30,6 +30,34 @@ function displayCityTempAndDescription(response) {
 	iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
+function displayForecast() {
+	let forecastElement = document.querySelector("#weather-forecast");
+
+	let forecastHTML = "";
+	let days = ["SUN", "MON", "TUES", "WED", "THURS"];
+	days.forEach(function (day) {
+		forecastHTML =
+			forecastHTML +
+			`<div class="card">
+						<div class="card-header forecast-day">${day}</div>
+						<div class="card-body">
+							<h5 class="card-title forecast-description">
+								Sunny Rain
+								<br /><i class="fa-solid fa-cloud-sun-rain forecast-weather-icon"></i>
+							</h5>
+							<p class="card-text forecast-temperatures">
+								<span class="forecast-low"> Low: 25° </span>
+								<br />
+								<span class="forecast-high"> High: 66°</span>
+							</p>
+						</div>
+						</div>
+			`;
+	});
+
+	forecastElement.innerHTML = forecastHTML;
+}
+
 function search(city) {
 	let apiKey = "d1a86552de255334f6117b348c4519bd";
 	let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
@@ -89,3 +117,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
 
 search("Bronx County");
+displayForecast();
