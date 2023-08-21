@@ -18,6 +18,14 @@ function displayTime(now) {
 	return `on ${day} ${month} ${date} ${hour}:${minute}.`;
 }
 
+function getForecast(coordinates) {
+	console.log(coordinates);
+	let apiKey = "d1a86552de255334f6117b348c4519bd";
+	let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+	console.log(apiUrl);
+	axios.get(apiUrl).then(displayForecast);
+}
+
 function displayCityTempAndDescription(response) {
 	let iconElement = document.querySelector("#weather-icon");
 
@@ -28,9 +36,12 @@ function displayCityTempAndDescription(response) {
 	document.querySelector("#weather-description").innerHTML = response.data.weather[0].description;
 	iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 	iconElement.setAttribute("alt", response.data.weather[0].description);
+
+	getForecast(response.data.coord);
 }
 
-function displayForecast() {
+function displayForecast(response) {
+	console.log(response.data.daily);
 	let forecastElement = document.querySelector("#weather-forecast");
 
 	let forecastHTML = "";
@@ -117,4 +128,3 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
 
 search("Bronx County");
-displayForecast();
