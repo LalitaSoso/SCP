@@ -62,7 +62,7 @@ function displayForecast(response) {
 						<div class="card-header forecast-day">${formatDay(forecastDay.dt)}</div>
 						<div class="card-body">
 							<h5 class="card-title forecast-description">
-								Sunny Rain
+								${forecastDay.weather[0].description}
 								<br />  <img
           src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
           alt=""

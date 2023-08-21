@@ -79,7 +79,7 @@ h2 {
 }
 
 .card-title {
-	text-transform: uppercase;
+	/* text-transform: lowercase; */
 	font-size: 15px;
 	font-weight: 500;
 }
