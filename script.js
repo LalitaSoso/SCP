@@ -18,6 +18,14 @@ function displayTime(now) {
 	return `on ${day} ${month} ${date} ${hour}:${minute}.`;
 }
 
+function formatDay(timestamp) {
+	let date = new Date(timestamp * 1000);
+	let day = date.getDay();
+	let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
+	return days[day];
+}
+
 function getForecast(coordinates) {
 	console.log(coordinates);
 	let apiKey = "d1a86552de255334f6117b348c4519bd";
@@ -41,29 +49,35 @@ function displayCityTempAndDescription(response) {
 }
 
 function displayForecast(response) {
-	console.log(response.data.daily);
+	let forecast = response.data.daily;
+
 	let forecastElement = document.querySelector("#weather-forecast");
 
 	let forecastHTML = "";
-	let days = ["SUN", "MON", "TUES", "WED", "THURS"];
-	days.forEach(function (day) {
-		forecastHTML =
-			forecastHTML +
-			`<div class="card">
-						<div class="card-header forecast-day">${day}</div>
+	forecast.forEach(function (forecastDay, index) {
+		if (index < 5) {
+			forecastHTML +=
+				// forecastHTML +
+				`<div class="card">
+						<div class="card-header forecast-day">${formatDay(forecastDay.dt)}</div>
 						<div class="card-body">
 							<h5 class="card-title forecast-description">
 								Sunny Rain
-								<br /><i class="fa-solid fa-cloud-sun-rain forecast-weather-icon"></i>
+								<br />  <img
+          src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+          alt=""
+          width="50"
+        />
 							</h5>
 							<p class="card-text forecast-temperatures">
-								<span class="forecast-low"> Low: 25° </span>
+								<span class="forecast-high"> High: ${Math.round(forecastDay.temp.max)}° </span>
 								<br />
-								<span class="forecast-high"> High: 66°</span>
+								<span class="forecast-low"> Low: ${Math.round(forecastDay.temp.min)}°</span>
 							</p>
 						</div>
 						</div>
 			`;
+		}
 	});
 
 	forecastElement.innerHTML = forecastHTML;
