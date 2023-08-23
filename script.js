@@ -15,7 +15,7 @@ function displayTime(now) {
 
 	let date = now.getDate();
 
-	return `on ${day} ${month} ${date} ${hour}:${minute}.`;
+	return `on ${day} ${month} ${date} ${hour}:${minute}`;
 }
 
 function formatDay(timestamp) {
@@ -27,7 +27,6 @@ function formatDay(timestamp) {
 }
 
 function getForecast(coordinates) {
-	console.log(coordinates);
 	let apiKey = "f09d3949047ab6c9e3bcaf79cf61f619";
 	let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
 	axios.get(apiUrl).then(displayForecast);
@@ -36,10 +35,8 @@ function getForecast(coordinates) {
 function displayCityTempAndDescription(response) {
 	let iconElement = document.querySelector("#weather-icon");
 
-	fahrenheitTemperature = response.data.main.temp;
-
 	document.querySelector("#city").innerHTML = response.data.name;
-	document.querySelector("#just-the-temp").innerHTML = `It is ${Math.round(fahrenheitTemperature)}°`;
+	document.querySelector("#just-the-temp").innerHTML = `${Math.round(response.data.main.temp)}°`;
 	document.querySelector("#weather-description").innerHTML = response.data.weather[0].description;
 	iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 	iconElement.setAttribute("alt", response.data.weather[0].description);
@@ -104,25 +101,6 @@ function geolocate(event) {
 	navigator.geolocation.getCurrentPosition(searchGeolocation);
 }
 
-function convertToCelsius(event) {
-	event.preventDefault();
-	let celsius = ((fahrenheitTemperature - 32) * 5) / 9;
-	let temperature = document.querySelector("#just-the-temp");
-	fahrenheitLink.classList.remove("active");
-	celsiusLink.classList.add("active");
-	temperature.innerHTML = `It is ${Math.round(celsius)}°`;
-}
-
-function displayFahrenheit(event) {
-	event.preventDefault();
-	let temperature = document.querySelector("#just-the-temp");
-	fahrenheitLink.classList.add("active");
-	celsiusLink.classList.remove("active");
-	temperature.innerHTML = `It is ${Math.round(fahrenheitTemperature)}°`;
-}
-
-let fahrenheitTemperature = null;
-
 let timeAndDay = document.querySelector("#red-line-time");
 let now = new Date();
 timeAndDay.innerHTML = displayTime(now);
@@ -132,11 +110,5 @@ searchForm.addEventListener("submit", searchInput);
 
 let geolocationButton = document.querySelector("#geolocation-button");
 geolocationButton.addEventListener("click", geolocate);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheit);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", convertToCelsius);
 
 search("Bronx County");

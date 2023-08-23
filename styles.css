@@ -58,19 +58,23 @@ h2 {
 	margin-top: 25px;
 }
 
+.just-the-temp {
+	font-weight: bold;
+	font-size: larger;
+}
 .red-line-units {
 	font-size: 15px;
 	vertical-align: super;
 }
 
-.red-line-units .active {
+/* .red-line-units .active {
 	text-decoration: none;
 	color: red;
 }
 
 .red-line-units .active:hover {
 	cursor: default;
-}
+} */
 
 .card-header {
 	text-align: left;
