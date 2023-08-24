@@ -102,6 +102,38 @@ function geolocate(event) {
 	navigator.geolocation.getCurrentPosition(searchGeolocation);
 }
 
+function getBronxWeather(event) {
+	event.preventDefault();
+	search("Bronx");
+}
+
+let bronxCity = document.querySelector("#theBronx");
+bronxCity.addEventListener("click", getBronxWeather);
+
+function getGironaWeather(event) {
+	event.preventDefault();
+	search("Girona");
+}
+
+let gironaCity = document.querySelector("#girona");
+gironaCity.addEventListener("click", getGironaWeather);
+
+function getPDXWeather(event) {
+	event.preventDefault();
+	search("Portland");
+}
+
+let portlandCity = document.querySelector("#pdx");
+portlandCity.addEventListener("click", getPDXWeather);
+
+function getPhillyWeather(event) {
+	event.preventDefault();
+	search("Philadelphia");
+}
+
+let philadelphiaCity = document.querySelector("#philly");
+philadelphiaCity.addEventListener("click", getPhillyWeather);
+
 let timeAndDay = document.querySelector("#red-line-time");
 let now = new Date();
 timeAndDay.innerHTML = displayTime(now);
