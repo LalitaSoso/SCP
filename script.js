@@ -15,7 +15,7 @@ function displayTime(now) {
 
 	let date = now.getDate();
 
-	return `on ${day} ${month} ${date} ${hour}:${minute}`;
+	return `on ${day} ${month} ${date} at ${hour}:${minute}`;
 }
 
 function formatDay(timestamp) {
@@ -65,9 +65,10 @@ function displayForecast(response) {
         />
 							</h5>
 							<p class="card-text forecast-temperatures">
-								<span class="forecast-high"> High: ${Math.round(forecastDay.temp.max)}° </span>
-								<br />
-								<span class="forecast-low"> Low: ${Math.round(forecastDay.temp.min)}°</span>
+								<span class="forecast-high" id="forecast-high"> ${Math.round(forecastDay.temp.max)}° </span>
+				
+								|
+								<span class="forecast-low"> ${Math.round(forecastDay.temp.min)}°</span>
 							</p>
 						</div>
 						</div>

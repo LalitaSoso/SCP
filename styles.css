@@ -16,15 +16,19 @@ h1 {
 	font-weight: bold;
 }
 
+.umbrella {
+	color: #8047ec;
+}
+
 .button {
 	background-color: #000000;
-	border: red solid 1px;
+	border: #f8f8f8 solid 1px;
 }
 
 .button:hover {
 	color: #000000;
 	background-color: #f8f8f8;
-	border: red solid 1px;
+	border: #f8f8f8 solid 1px;
 }
 
 a {
@@ -45,15 +49,16 @@ a {
 .row.cities:hover {
 	cursor: pointer;
 	text-decoration: underline;
-	color: red;
+	color: orangered;
 }
 
 h2 {
-	font-family: Cerebri Sans, Helvetica, Arial, sans-serif;
-	font-variant-caps: small-caps;
+	/* font-family: Cerebri Sans, Helvetica, Arial, sans-serif; */
+	font-family: "Josefin Slab", serif;
+	/* font-variant-caps: small-caps; */
 	text-align: center;
 	font-size: 20px;
-	color: red;
+	color: orangered;
 	padding: 20px;
 	margin-top: 25px;
 }
@@ -62,10 +67,11 @@ h2 {
 	font-weight: bold;
 	font-size: larger;
 }
-.red-line-units {
+
+/* .red-line-units {
 	font-size: 15px;
 	vertical-align: super;
-}
+} */
 
 /* .red-line-units .active {
 	text-decoration: none;
@@ -76,8 +82,12 @@ h2 {
 	cursor: default;
 } */
 
+.weather-forecast {
+	text-align: center;
+}
+
 .card-header {
-	text-align: left;
+	/* text-align: center; */
 	font-size: 20px;
 	font-weight: bold;
 }
@@ -90,6 +100,10 @@ h2 {
 
 i {
 	font-size: 30px;
+}
+
+.forecast-high {
+	font-weight: bold;
 }
 
 .cb {
