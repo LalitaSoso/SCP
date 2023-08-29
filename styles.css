@@ -4,10 +4,11 @@ body {
 }
 
 .weather-app {
-	border: 2px solid #000000;
+	border: 1px dashed #000000;
 	padding: 20px;
 	max-width: 700px;
 	margin: 0 auto;
+	background-color: #f8f8f8;
 }
 
 h1 {
@@ -17,7 +18,7 @@ h1 {
 }
 
 .umbrella {
-	color: #8047ec;
+	color: #000000;
 }
 
 .button {
@@ -29,6 +30,14 @@ h1 {
 	color: #000000;
 	background-color: #f8f8f8;
 	border: #f8f8f8 solid 1px;
+}
+
+.btn-primary {
+	margin-left: 5px;
+}
+
+.btn-secondary {
+	margin-left: 5px;
 }
 
 a {
