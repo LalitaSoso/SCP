@@ -42,6 +42,17 @@ function displayCityTempAndDescription(response) {
 	iconElement.setAttribute("alt", response.data.weather[0].description);
 
 	getForecast(response.data.coord);
+	getRainForecast(response.data.weather[0].description);
+}
+
+function getRainForecast(response) {
+	if (response.includes(`rain`)) {
+		document.querySelector("#rain-answer").innerHTML = `currently raining ☔️`;
+	} else {
+		document.querySelector("#rain-answer").innerHTML = `not currently raining`;
+	}
+
+	return response;
 }
 
 function displayForecast(response) {
@@ -51,7 +62,7 @@ function displayForecast(response) {
 
 	let forecastHTML = "";
 	forecast.forEach(function (forecastDay, index) {
-		if (index < 5) {
+		if (index < 4) {
 			forecastHTML += `
 			<div class="card">
 						<div class="card-header forecast-day">${formatDay(forecastDay.dt)}</div>

@@ -11,6 +11,9 @@
 			rel="stylesheet"
 			integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 			crossorigin="anonymous" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 		<link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,7 +25,7 @@
 	<body>
 		<div class="container">
 			<div class="weather-app">
-				<h1>⚡️Is it Raining<i class="fa-solid fa-umbrella umbrella"></i>⚡️</h1>
+				<h1>Is it Raining?</h1>
 
 				<form class="search-form" id="search-form">
 					<div class="input-group mb-3">
@@ -41,9 +44,7 @@
 
 				<h2 class="red-line">
 					<div class="red-line-city" id="red-line-city">
-						There is no rain expected in
-						<span id="city"> </span>
-						today.
+						It is <span class="rain-answer" id="rain-answer"> not currently raining </span> in <span id="city"> </span>.
 					</div>
 					<div class="red-line-time-and-temp">
 						<span class="red-line-temp" id="red-line-temp">
