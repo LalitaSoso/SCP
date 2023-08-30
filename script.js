@@ -46,10 +46,21 @@ function displayCityTempAndDescription(response) {
 }
 
 function getRainForecast(response) {
-	if (response.includes(`rain`)) {
-		document.querySelector("#rain-answer").innerHTML = `currently raining ☔️`;
+	let rainImg = document.querySelector("#when-it-rains");
+	if (response.includes("rain" || "thunderstorm" || "drizzle")) {
+		document.querySelector("#red-rain-answer").innerHTML = `currently raining ☔️`;
+		rainImg.innerHTML = `<div style="display: block; margin: 0 auto; max-width: 50%; padding-bottom: 25%; position: relative">
+            <img
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/095/132/original/totoro.gif?1693357733"
+              width="100%"
+              height="100%"
+              style="position: absolute"
+              frameborder="0"
+            />
+          </div>`;
 	} else {
-		document.querySelector("#rain-answer").innerHTML = `not currently raining`;
+		document.querySelector("#red-rain-answer").innerHTML = `not currently raining`;
+		rainImg.innerHTML = null;
 	}
 
 	return response;
@@ -77,8 +88,7 @@ function displayForecast(response) {
 							</h5>
 							<p class="card-text forecast-temperatures">
 								<span class="forecast-high" id="forecast-high"> ${Math.round(forecastDay.temp.max)}° </span>
-				
-								|
+												|
 								<span class="forecast-low"> ${Math.round(forecastDay.temp.min)}°</span>
 							</p>
 						</div>
